@@ -10,6 +10,8 @@ A fine-tuned variant of CSM powers the [interactive voice demo](https://www.sesa
 
 A hosted [Hugging Face space](https://huggingface.co/spaces/sesame/csm-1b) is also available for testing audio generation.
 
+- [x] Cog Fast Push Compatible
+
 ## Requirements
 
 * A CUDA-compatible GPU
