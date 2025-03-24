@@ -1,7 +1,6 @@
-from cog import BasePredictor, Input, Path
+from cog import BasePredictor, Input, Path, File
 import os
 import time
-import torch
 import subprocess
 import torchaudio
 from generator import load_csm_1b
@@ -46,8 +45,15 @@ class Predictor(BasePredictor):
             description="Maximum audio length in milliseconds",
             default=10000,
             ge=1000,
-        )
             le=30000,
+        ),
+        context_text: str = Input(
+            description="Trascript of the audio file to clone the voice from",
+            default="",
+        ),
+        context_audio: File = Input(
+            description="Audio file to clone the voice from",
+        ),
     ) -> Path:
         """Run a single prediction on the model"""
         audio = self.generator.generate(
